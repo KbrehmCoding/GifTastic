@@ -31,17 +31,23 @@ $("#buttonsContainer").on("click", ".cartoon", function(event) {
             cartoonImage.attr("alt", "cartoon image");
             $("#imagesContainer").prepend(cartoonImage);
         }
-    });
+    }):.
+    // still not sure where to put this to make it work
+    // then(function(response) {
+    //     var results = response.data;
+    //     for (var i = 0; i < results.length; i++) {
+    //         if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+    //             var gifDiv = $("<div>");
+    //             var rating = results[i].rating;
+    //             var p = $("<p>").text("Rating: " + rating);
+    //             var cartoons = $("<img>");
+    //             cartoons.attr("src", results[i].images.fixed_height.url);
+    //             gifDiv.append(p);
+    //             gifDiv.append(cartoons);
+    //         $("#imagesContainer").prepend(gifDiv);
+    //         }
+    //     }
+    //     });
 });
 
 renderButtons();
-// no idea where to put this to make it work in my code
-// for (var i = 0; i < results.length; i++) {
-//     if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-//         var gifDiv = $("<div>");
-//         var rating = results[i].rating;
-//         var p = $("<p>").text("Rating: " + rating);
-//         var cartoons = $("<img>");
-//         cartoons.attr("src", results[i].images.fixed_height.url);
-//         gifDiv.append(p);
-//         gifDiv.append(cartoons);
