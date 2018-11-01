@@ -24,7 +24,6 @@ $("#buttonsContainer").on("click", ".cartoon", function(event) {
         url: `${queryURL}&q=${$(this).attr("data-name")}`,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
         for (var i = 0; i < response.data.length; i++) {
             var imageUrl = response.data[i].images.original.url;
             var cartoonImage = $("<img>");
@@ -36,3 +35,13 @@ $("#buttonsContainer").on("click", ".cartoon", function(event) {
 });
 
 renderButtons();
+// no idea where to put this to make it work in my code
+// for (var i = 0; i < results.length; i++) {
+//     if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+//         var gifDiv = $("<div>");
+//         var rating = results[i].rating;
+//         var p = $("<p>").text("Rating: " + rating);
+//         var cartoons = $("<img>");
+//         cartoons.attr("src", results[i].images.fixed_height.url);
+//         gifDiv.append(p);
+//         gifDiv.append(cartoons);
