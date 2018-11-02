@@ -32,6 +32,18 @@ $("#buttonsContainer").on("click", ".cartoon", function(event) {
             $("#imagesContainer").prepend(cartoonImage);
         }
     });
+// need to add a function to add a data-still attribute to the gifs so that this code will work to pause them
+    // $(".gif").on("click", function() {
+    //     var state = $(this).attr("data-state");
+    //     if (state === "still") {
+    //         $(this).attr("src", $(this).attr("data-animate"));
+    //         $(this).attr("data-state", "animate");
+    //     } else {
+    //         $(this).attr("src", $(this).attr("data-still"));
+    //         $(this).attr("data-state", "still");
+    //     }
+
+
     // still not sure where to put this to make it work
     // .then(function(response) {
     //     var results = response.data;
