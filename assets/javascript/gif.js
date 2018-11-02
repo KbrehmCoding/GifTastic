@@ -18,6 +18,17 @@ $("#addCartoon").on("click", function(event) {
     cartoons.push(cartoon);
     renderButtons();
 });
+// still need to add data still and data animate to the classes in the gifs
+$(".gif").on("click", function() {
+    var state = $(this).attr("data-state");
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+})
 
 $("#buttonsContainer").on("click", ".cartoon", function(event) {
     $.ajax({
@@ -37,18 +48,7 @@ $("#buttonsContainer").on("click", ".cartoon", function(event) {
             $("#imagesContainer").prepend(cartoonDiv);
             }
         }
-        });
+    });
 });
-
-$(".gif").on("click", function() {
-    var state = $(this).attr("data-state");
-    if (state === "still") {
-        $(this).attr("src", $(this).attr("data-animate"));
-        $(this).attr("data-state", "animate");
-    } else {
-        $(this).attr("src", $(this).attr("data-still"));
-        $(this).attr("data-state", "still");
-    }
-})
 
 renderButtons();
