@@ -49,14 +49,14 @@ $("#buttonsContainer").on("click", ".cartoon", function(event) {
     //     var results = response.data;
     //     for (var i = 0; i < results.length; i++) {
     //         if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-    //             var gifDiv = $("<div>");
+    //             var cartoonDiv = $("<div>");
     //             var rating = results[i].rating;
     //             var p = $("<p>").text("Rating: " + rating);
     //             var cartoons = $("<img>");
     //             cartoons.attr("src", results[i].images.fixed_height.url);
-    //             gifDiv.append(p);
-    //             gifDiv.append(cartoons);
-    //         $("#imagesContainer").prepend(gifDiv);
+    //             cartoonDiv.append(p);
+    //             cartoonDiv.append(cartoons);
+    //         $("#imagesContainer").prepend(cartoonDiv);
     //         }
     //     }
     //     });
