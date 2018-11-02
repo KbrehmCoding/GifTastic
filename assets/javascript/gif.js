@@ -30,8 +30,8 @@ $("#buttonsContainer").on("click", ".cartoon", function(event) {
             cartoonImage.attr("src", imageUrl);
             cartoonImage.attr("alt", "cartoon image");
             $("#imagesContainer").prepend(cartoonImage);
-        }
-    });return promise.then(function(response) {
+        }return response;
+    }).then(function(response) {
         var results = response.data;
         for (var i = 0; i < results.length; i++) {
             if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
