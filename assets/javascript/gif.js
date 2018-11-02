@@ -24,14 +24,6 @@ $("#buttonsContainer").on("click", ".cartoon", function(event) {
         url: `${queryURL}&q=${$(this).attr("data-name")}`,
         method: "GET"
     }).then(function(response) {
-        for (var i = 0; i < response.data.length; i++) {
-            var imageUrl = response.data[i].images.original.url;
-            var cartoonImage = $("<img>");
-            cartoonImage.attr("src", imageUrl);
-            cartoonImage.attr("alt", "cartoon image");
-            $("#imagesContainer").prepend(cartoonImage);
-        }return response;
-    }).then(function(response) {
         var results = response.data;
         for (var i = 0; i < results.length; i++) {
             if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
@@ -47,7 +39,6 @@ $("#buttonsContainer").on("click", ".cartoon", function(event) {
         }
         });
 });
-
 
 $(".gif").on("click", function() {
     var state = $(this).attr("data-state");
