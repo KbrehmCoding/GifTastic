@@ -31,7 +31,7 @@ $("#buttonsContainer").on("click", ".cartoon", function(event) {
             cartoonImage.attr("alt", "cartoon image");
             $("#imagesContainer").prepend(cartoonImage);
         }
-    }).then(function(response) {
+    });return promise.then(function(response) {
         var results = response.data;
         for (var i = 0; i < results.length; i++) {
             if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
