@@ -31,35 +31,31 @@ $("#buttonsContainer").on("click", ".cartoon", function(event) {
             cartoonImage.attr("alt", "cartoon image");
             $("#imagesContainer").prepend(cartoonImage);
         }
-    });
-// need to add a function to add a data-still and data-animate attributes to the gifs so that this code will work to pause them
-    // $(".gif").on("click", function() {
-    //     var state = $(this).attr("data-state");
-    //     if (state === "still") {
-    //         $(this).attr("src", $(this).attr("data-animate"));
-    //         $(this).attr("data-state", "animate");
-    //     } else {
-    //         $(this).attr("src", $(this).attr("data-still"));
-    //         $(this).attr("data-state", "still");
-    //     }
+    }).then(function(response) {
+        var results = response.data;
+        for (var i = 0; i < results.length; i++) {
+            if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                var cartoonDiv = $("<div>");
+                var rating = results[i].rating;
+                var p = $("<p>").text("Rating: " + rating);
+                var cartoons = $("<img>");
+                cartoons.attr("src", results[i].images.fixed_height.url);
+                cartoonDiv.append(p);
+                cartoonDiv.append(cartoons);
+            $("#imagesContainer").prepend(cartoonDiv);
+            }
+        }
+        });
 
-
-    // still not sure where to put this to make it work
-    // .then(function(response) {
-    //     var results = response.data;
-    //     for (var i = 0; i < results.length; i++) {
-    //         if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-    //             var cartoonDiv = $("<div>");
-    //             var rating = results[i].rating;
-    //             var p = $("<p>").text("Rating: " + rating);
-    //             var cartoons = $("<img>");
-    //             cartoons.attr("src", results[i].images.fixed_height.url);
-    //             cartoonDiv.append(p);
-    //             cartoonDiv.append(cartoons);
-    //         $("#imagesContainer").prepend(cartoonDiv);
-    //         }
-    //     }
-    //     });
+    $(".gif").on("click", function() {
+        var state = $(this).attr("data-state");
+        if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
 });
 
 renderButtons();
