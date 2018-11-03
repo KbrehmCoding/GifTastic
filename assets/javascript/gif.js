@@ -19,7 +19,6 @@ $("#addCartoon").on("click", function(event) {
     renderButtons();
 });
 
-// still need to add data-still and data-animate to the classes in the gifs
 $("#imagesContainer").on("click", ".gif", function() {
     var state = $(this).attr("data-state");
     if (state === "still") {
