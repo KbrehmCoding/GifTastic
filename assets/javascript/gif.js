@@ -1,4 +1,4 @@
-var topics = ["My Little Pony", "Kim Possible", "Star vs. The Forces Of Evil", "Catdog"];
+var topics = ["My Little Pony", "Kim Possible", "Star vs. The Forces Of Evil", "Catdog", "Spongebob Squarepants", "Steven Universe", "Teenage Mutant Ninja Turtles", "Power Puff Girls", "kids Next Door", "The Grim Adventures Of Billy And Mandy", "Courage the Corwardly Dog", "The Magic School Bus", "Dragon Tales", "The Poud Family", "How To Train Your Dragon", "Recess", "Hey Arnold"];
 var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&limit=10";
 
 function renderButtons() {
