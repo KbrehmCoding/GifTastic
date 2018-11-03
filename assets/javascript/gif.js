@@ -1,13 +1,13 @@
-var cartoons = ["My Little Pony", "Kim Possible", "Star vs. The Forces Of Evil", "Catdog"];
+var topics = ["My Little Pony", "Kim Possible", "Star vs. The Forces Of Evil", "Catdog"];
 var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&limit=10";
 
 function renderButtons() {
     $("#buttonsContainer").empty();
-    for (var i = 0; i < cartoons.length; i++) {
+    for (var i = 0; i < topics.length; i++) {
         var button = $("<button>");
         button.addClass("cartoon");
-        button.attr("data-name", cartoons[i]);
-        button.text(cartoons[i]);
+        button.attr("data-name", topics[i]);
+        button.text(topics[i]);
         $("#buttonsContainer").append(button);
     }
 }
