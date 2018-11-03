@@ -43,6 +43,10 @@ $("#buttonsContainer").on("click", ".cartoon", function(event) {
                 var p = $("<p>").text("Rating: " + rating);
                 var cartoons = $("<img>");
                 cartoons.attr("src", results[i].images.fixed_height.url);
+                cartoons.attr("data-state", "still");
+                cartoons.attr("data-still", results[i].images.fixed_height.url);
+                cartoons.attr("data-animate", results[i].images.fixed_height.url);
+                cartoons.attr("class", "gifs");
                 cartoonDiv.append(p);
                 cartoonDiv.append(cartoons);
             $("#imagesContainer").prepend(cartoonDiv);
