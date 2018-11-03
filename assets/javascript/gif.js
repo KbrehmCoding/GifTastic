@@ -18,8 +18,9 @@ $("#addCartoon").on("click", function(event) {
     cartoons.push(cartoon);
     renderButtons();
 });
+
 // still need to add data-still and data-animate to the classes in the gifs
-$(".gif").on("click", function() {
+$("#imagesContainer").on("click", ".gif", function() {
     var state = $(this).attr("data-state");
     if (state === "still") {
         $(this).attr("src", $(this).attr("data-animate"));
@@ -28,9 +29,9 @@ $(".gif").on("click", function() {
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
     }
-})
+});
 
-$("#buttonsContainer").on("click", ".cartoon", function(event) {
+$("#buttonsContainer").on("click", ".cartoon", function() {
     $.ajax({
         url: `${queryURL}&q=${$(this).attr("data-name")}`,
         method: "GET"
@@ -42,14 +43,14 @@ $("#buttonsContainer").on("click", ".cartoon", function(event) {
                 var rating = results[i].rating;
                 var p = $("<p>").text("Rating: " + rating);
                 var cartoons = $("<img>");
-                cartoons.attr("src", results[i].images.fixed_height.url);
+                cartoons.attr("src", results[i].images.fixed_height_still.url);
                 cartoons.attr("data-state", "still");
-                cartoons.attr("data-still", results[i].images.fixed_height.url);
+                cartoons.attr("data-still", results[i].images.fixed_height_still.url);
                 cartoons.attr("data-animate", results[i].images.fixed_height.url);
                 cartoons.attr("class", "gif");
                 cartoonDiv.append(p);
                 cartoonDiv.append(cartoons);
-            $("#imagesContainer").prepend(cartoonDiv);
+                $("#imagesContainer").prepend(cartoonDiv);
             }
         }
     });
